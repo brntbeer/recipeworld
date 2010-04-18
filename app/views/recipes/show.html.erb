@@ -1,0 +1,23 @@
+<p>
+  <b>Title:</b>
+  <%=h @recipe.title %>
+</p>
+
+<p>
+  <b>Ingredients:</b>
+  <%=h @recipe.ingredients %>
+</p>
+
+<p>
+  <b>Created at:</b>
+  <%=h @recipe.created_at %>
+</p>
+
+<p>
+  <b>Updated at:</b>
+  <%=h @recipe.updated_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+<%= link_to 'Back', recipes_path %>

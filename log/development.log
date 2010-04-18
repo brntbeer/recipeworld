@@ -1,0 +1,715 @@
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (474.1ms)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (192.5ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateRecipes (20100418053550)
+  [4;36;1mSQL (32.8ms)[0m   [0;1mCREATE TABLE `recipes` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `ingredients` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (16.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100418053550')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (25.1ms)[0m   [0mSHOW FIELDS FROM `recipes`[0m
+  [4;36;1mSQL (14.8ms)[0m   [0;1mdescribe `recipes`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `recipes`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2010-04-18 00:54:08) [GET]
+  [4;35;1mRecipe Load (0.4ms)[0m   [0mSELECT * FROM `recipes` [0m
+Rendering template within layouts/recipes
+Rendering recipes/index
+Completed in 142ms (View: 123, DB: 1) | 200 OK [http://localhost/recipes]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RecipesController#new (for 127.0.0.1 at 2010-04-18 00:54:12) [GET]
+  [4;35;1mRecipe Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `recipes`[0m
+Rendering template within layouts/recipes
+Rendering recipes/new
+Completed in 401ms (View: 380, DB: 2) | 200 OK [http://localhost/recipes/new]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RecipesController#create (for 127.0.0.1 at 2010-04-18 00:54:59) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"D3jiqoPSgwvNlgGbmBWSoxevcMIQfiBBWmOYekpnI+w=", "recipe"=>{"updated_at(1i)"=>"2010", "updated_at(2i)"=>"4", "created_at(1i)"=>"2010", "updated_at(3i)"=>"18", "created_at(2i)"=>"4", "title"=>"Ham Sammich", "updated_at(4i)"=>"05", "created_at(3i)"=>"18", "updated_at(5i)"=>"54", "created_at(4i)"=>"12", "ingredients"=>"ham\r\ncheese\r\nmustard", "created_at(5i)"=>"54"}}
+  [4;35;1mRecipe Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `recipes`[0m
+  [4;36;1mSQL (45.3ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mRecipe Create (13.6ms)[0m   [0mINSERT INTO `recipes` (`created_at`, `title`, `updated_at`, `ingredients`) VALUES('2010-04-18 12:54:00', 'Ham Sammich', '2010-04-18 05:54:00', 'ham\r\ncheese\r\nmustard')[0m
+  [4;36;1mSQL (34.6ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/recipes/1
+Completed in 126ms (DB: 95) | 302 Found [http://localhost/recipes]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2010-04-18 00:54:59) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecipe Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `recipes`[0m
+  [4;35;1mRecipe Load (80.7ms)[0m   [0mSELECT * FROM `recipes` WHERE (`recipes`.`id` = 1) [0m
+Rendering template within layouts/recipes
+Rendering recipes/show
+Completed in 134ms (View: 32, DB: 82) | 200 OK [http://localhost/recipes/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2010-04-18 00:55:27) [GET]
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM `recipes` [0m
+Rendering template within layouts/recipes
+Rendering recipes/index
+  [4;36;1mRecipe Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `recipes`[0m
+Completed in 37ms (View: 17, DB: 2) | 200 OK [http://localhost/recipes]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM `recipes` LIMIT 1[0m
+  [4;36;1mRecipe Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `recipes`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mRecipe Update (71.8ms)[0m   [0;1mUPDATE `recipes` SET `updated_at` = '2010-04-18 05:56:33', `title` = 'Ham Sandwich' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mRecipe Create (0.2ms)[0m   [0mINSERT INTO `recipes` (`created_at`, `title`, `updated_at`, `ingredients`) VALUES('2010-04-18 05:57:12', 'Breakfast Sandwich', '2010-04-18 05:57:12', NULL)[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mRecipe Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `recipes`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mRecipe Create (0.2ms)[0m   [0;1mINSERT INTO `recipes` (`created_at`, `title`, `updated_at`, `ingredients`) VALUES('2010-04-18 06:00:06', 'Chicken Pop Pie', '2010-04-18 06:00:06', NULL)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateRecipes (20100418053550)
+Migrating to AddVersionedTables (20100418155733)
+  [4;35;1mSQL (0.0ms)[0m   [0mMysql::Error: Table 'recipeworld_development.recipe' doesn't exist: ALTER TABLE `recipe` ADD `version` int(11)[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateRecipes (20100418053550)
+Migrating to AddVersionedTables (20100418155733)
+  [4;35;1mSQL (60.5ms)[0m   [0mALTER TABLE `recipes` ADD `version` int(11)[0m
+  [4;36;1mSQL (24.3ms)[0m   [0;1mCREATE TABLE `recipes_versions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `recipe_id` int(11), `title` varchar(255), `ingredients` text, `created_at` datetime, `updated_at` datetime, `version` int(11)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (19.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100418155733')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mSHOW FIELDS FROM `recipes`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mdescribe `recipes`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `recipes`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW FIELDS FROM `recipes_versions`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mdescribe `recipes_versions`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `recipes_versions`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mRecipe Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `recipes`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mRecipe Create (0.3ms)[0m   [0mINSERT INTO `recipes` (`created_at`, `title`, `updated_at`, `ingredients`, `version`) VALUES('2010-04-18 16:06:59', 'Fried Rice', '2010-04-18 16:06:59', NULL, 1)[0m
+  [4;36;1mRecipe::Version Columns (0.0ms)[0m   [0;1mMysql::Error: Table 'recipeworld_development.recipe_versions' doesn't exist: SHOW FIELDS FROM `recipe_versions`[0m
+  [4;35;1mSQL (42.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateRecipes (20100418053550)
+Migrating to AddVersionedTables (20100418155733)
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW FIELDS FROM `recipes`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mdescribe `recipes`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `recipes`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `recipes_versions`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mdescribe `recipes_versions`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `recipes_versions`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateRecipes (20100418053550)
+Migrating to AddVersionedTables (20100418155733)
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW FIELDS FROM `recipes`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mdescribe `recipes`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `recipes`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `recipes_versions`[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mdescribe `recipes_versions`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `recipes_versions`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (105.6ms)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (50.8ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateRecipes (20100418053550)
+  [4;36;1mSQL (79.4ms)[0m   [0;1mCREATE TABLE `recipes` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `ingredients` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100418053550')[0m
+Migrating to AddVersionedTables (20100418155733)
+  [4;36;1mSQL (47.8ms)[0m   [0;1mALTER TABLE `recipes` ADD `version` int(11)[0m
+  [4;35;1mSQL (26.0ms)[0m   [0mCREATE TABLE `recipe_versions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `recipe_id` int(11), `title` varchar(255), `ingredients` text, `created_at` datetime, `updated_at` datetime, `version` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100418155733')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mSHOW FIELDS FROM `recipe_versions`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mdescribe `recipe_versions`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `recipe_versions`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW FIELDS FROM `recipes`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mdescribe `recipes`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSHOW KEYS FROM `recipes`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mRecipe Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `recipes`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mRecipe Create (0.3ms)[0m   [0mINSERT INTO `recipes` (`created_at`, `title`, `updated_at`, `ingredients`, `version`) VALUES('2010-04-18 16:10:37', 'Fried Rice', '2010-04-18 16:10:37', NULL, 1)[0m
+  [4;36;1mRecipe::Version Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `recipe_versions`[0m
+  [4;35;1mRecipe::Version Create (0.3ms)[0m   [0mINSERT INTO `recipe_versions` (`created_at`, `title`, `recipe_id`, `updated_at`, `ingredients`, `version`) VALUES('2010-04-18 16:10:37', 'Fried Rice', 1, '2010-04-18 16:10:37', NULL, 1)[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (122.7ms)[0m   [0;1mSELECT max(`recipe_versions`.version) AS max_version FROM `recipe_versions` WHERE (`recipe_versions`.recipe_id = 1) [0m
+  [4;35;1mRecipe Update (0.5ms)[0m   [0mUPDATE `recipes` SET `updated_at` = '2010-04-18 16:11:06', `version` = 2, `title` = 'Fried Rice with Meat' WHERE `id` = 1[0m
+  [4;36;1mRecipe::Version Create (0.2ms)[0m   [0;1mINSERT INTO `recipe_versions` (`created_at`, `title`, `recipe_id`, `updated_at`, `ingredients`, `version`) VALUES('2010-04-18 16:10:37', 'Fried Rice with Meat', 1, '2010-04-18 16:11:06', NULL, 2)[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mCOMMIT[0m
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM `recipes` WHERE (`recipes`.`id` = 1) [0m
+  [4;35;1mRecipe::Version Load (0.3ms)[0m   [0mSELECT * FROM `recipe_versions` WHERE (`recipe_versions`.recipe_id = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateRecipes (20100418053550)
+Migrating to AddVersionedTables (20100418155733)
+Migrating to CreateProfiles (20100418171649)
+  [4;35;1mSQL (117.5ms)[0m   [0mCREATE TABLE `profiles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `bio` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (4.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100418171649')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW FIELDS FROM `profiles`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mdescribe `profiles`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `profiles`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW FIELDS FROM `recipe_versions`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mdescribe `recipe_versions`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `recipe_versions`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW FIELDS FROM `recipes`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mdescribe `recipes`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `recipes`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateRecipes (20100418053550)
+Migrating to AddVersionedTables (20100418155733)
+Migrating to CreateProfiles (20100418171649)
+Migrating to CreateUsers (20100418171837)
+  [4;35;1mSQL (150.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100418171837')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSHOW FIELDS FROM `profiles`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mdescribe `profiles`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `profiles`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW FIELDS FROM `recipe_versions`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mdescribe `recipe_versions`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `recipe_versions`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW FIELDS FROM `recipes`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mdescribe `recipes`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `recipes`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Create (0.3ms)[0m   [0;1mINSERT INTO `users` (`name`, `created_at`, `updated_at`) VALUES('jeebus', '2010-04-18 17:24:53', '2010-04-18 17:24:53')[0m
+  [4;35;1mSQL (23.8ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateRecipes (20100418053550)
+Migrating to AddVersionedTables (20100418155733)
+Migrating to CreateProfiles (20100418171649)
+Migrating to CreateUsers (20100418171837)
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSHOW FIELDS FROM `profiles`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mdescribe `profiles`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `profiles`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW FIELDS FROM `recipe_versions`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mdescribe `recipe_versions`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW KEYS FROM `recipe_versions`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW FIELDS FROM `recipes`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mdescribe `recipes`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `recipes`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (77.9ms)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (66.5ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateRecipes (20100418053550)
+  [4;36;1mSQL (25.2ms)[0m   [0;1mCREATE TABLE `recipes` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `ingredients` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100418053550')[0m
+Migrating to AddVersionedTables (20100418155733)
+  [4;36;1mSQL (30.4ms)[0m   [0;1mALTER TABLE `recipes` ADD `version` int(11)[0m
+  [4;35;1mSQL (32.0ms)[0m   [0mCREATE TABLE `recipe_versions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `recipe_id` int(11), `title` varchar(255), `ingredients` text, `created_at` datetime, `updated_at` datetime, `version` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100418155733')[0m
+Migrating to CreateProfiles (20100418171649)
+  [4;35;1mSQL (31.0ms)[0m   [0mCREATE TABLE `profiles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `bio` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100418171649')[0m
+Migrating to CreateUsers (20100418171837)
+  [4;35;1mSQL (32.7ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100418171837')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW FIELDS FROM `profiles`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mdescribe `profiles`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `profiles`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW FIELDS FROM `recipe_versions`[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mdescribe `recipe_versions`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `recipe_versions`[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mSHOW FIELDS FROM `recipes`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mdescribe `recipes`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `recipes`[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Create (0.2ms)[0m   [0mINSERT INTO `users` (`name`, `created_at`, `updated_at`) VALUES('jeebus', '2010-04-18 17:27:54', '2010-04-18 17:27:54')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mProfile Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `profiles`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateRecipes (20100418053550)
+Migrating to AddVersionedTables (20100418155733)
+Migrating to CreateProfiles (20100418171649)
+Migrating to CreateUsers (20100418171837)
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW FIELDS FROM `profiles`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mdescribe `profiles`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `profiles`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW FIELDS FROM `recipe_versions`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mdescribe `recipe_versions`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW KEYS FROM `recipe_versions`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSHOW FIELDS FROM `recipes`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mdescribe `recipes`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `recipes`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (45.1ms)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (72.7ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateRecipes (20100418053550)
+  [4;36;1mSQL (21.9ms)[0m   [0;1mCREATE TABLE `recipes` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `ingredients` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100418053550')[0m
+Migrating to AddVersionedTables (20100418155733)
+  [4;36;1mSQL (28.4ms)[0m   [0;1mALTER TABLE `recipes` ADD `version` int(11)[0m
+  [4;35;1mSQL (9.7ms)[0m   [0mCREATE TABLE `recipe_versions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `recipe_id` int(11), `title` varchar(255), `ingredients` text, `created_at` datetime, `updated_at` datetime, `version` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100418155733')[0m
+Migrating to CreateProfiles (20100418171649)
+  [4;35;1mSQL (4.6ms)[0m   [0mCREATE TABLE `profiles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `bio` text, `user_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100418171649')[0m
+Migrating to CreateUsers (20100418171837)
+  [4;35;1mSQL (32.4ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100418171837')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW FIELDS FROM `profiles`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mdescribe `profiles`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `profiles`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW FIELDS FROM `recipe_versions`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mdescribe `recipe_versions`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW KEYS FROM `recipe_versions`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSHOW FIELDS FROM `recipes`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mdescribe `recipes`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `recipes`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Create (0.3ms)[0m   [0;1mINSERT INTO `users` (`name`, `created_at`, `updated_at`) VALUES('jeebus', '2010-04-18 17:55:21', '2010-04-18 17:55:21')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateRecipes (20100418053550)
+Migrating to AddVersionedTables (20100418155733)
+Migrating to CreateProfiles (20100418171649)
+Migrating to CreateUsers (20100418171837)
+Migrating to RemoveProfiles (20100418183948)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateRecipes (20100418053550)
+Migrating to AddVersionedTables (20100418155733)
+Migrating to CreateProfiles (20100418171649)
+Migrating to CreateUsers (20100418171837)
+Migrating to RemoveProfiles (20100418183948)
+  [4;35;1mSQL (72.1ms)[0m   [0mDROP TABLE `profiles`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100418183948')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSHOW FIELDS FROM `recipe_versions`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mdescribe `recipe_versions`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW KEYS FROM `recipe_versions`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW FIELDS FROM `recipes`[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mdescribe `recipes`[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mSHOW KEYS FROM `recipes`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateRecipes (20100418053550)
+Migrating to AddVersionedTables (20100418155733)
+Migrating to CreateProfiles (20100418171649)
+Migrating to CreateUsers (20100418171837)
+Migrating to RemoveProfiles (20100418183948)
+Migrating to AddForeignKeyToRecipes (20100418184700)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateRecipes (20100418053550)
+Migrating to AddVersionedTables (20100418155733)
+Migrating to CreateProfiles (20100418171649)
+Migrating to CreateUsers (20100418171837)
+Migrating to RemoveProfiles (20100418183948)
+Migrating to AddForeignKeyToRecipes (20100418184700)
+  [4;35;1mSQL (139.3ms)[0m   [0mALTER TABLE `recipes` ADD `user_id` int(11)[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100418184700')[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (3.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (7.2ms)[0m   [0;1mSHOW FIELDS FROM `recipe_versions`[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mdescribe `recipe_versions`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW KEYS FROM `recipe_versions`[0m
+  [4;35;1mSQL (9.3ms)[0m   [0mSHOW FIELDS FROM `recipes`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mdescribe `recipes`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `recipes`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (3.2ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateRecipes (20100418053550)
+Migrating to AddVersionedTables (20100418155733)
+Migrating to CreateProfiles (20100418171649)
+Migrating to CreateUsers (20100418171837)
+Migrating to RemoveProfiles (20100418183948)
+Migrating to AddForeignKeyToRecipes (20100418184700)
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSHOW FIELDS FROM `recipe_versions`[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mdescribe `recipe_versions`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW KEYS FROM `recipe_versions`[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mSHOW FIELDS FROM `recipes`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mdescribe `recipes`[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mSHOW KEYS FROM `recipes`[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM `recipes` WHERE (`recipes`.user_id = 1) [0m
+  [4;36;1mRecipe Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `recipes`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mRecipe Create (0.5ms)[0m   [0;1mINSERT INTO `recipes` (`created_at`, `title`, `updated_at`, `ingredients`, `version`, `user_id`) VALUES('2010-04-18 18:54:34', 'Fried Fish', '2010-04-18 18:54:34', NULL, 1, 1)[0m
+  [4;35;1mRecipe::Version Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `recipe_versions`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Create (0.2ms)[0m   [0mINSERT INTO `users` (`name`, `created_at`, `updated_at`) VALUES('jebus', '2010-04-18 18:55:29', '2010-04-18 18:55:29')[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM `recipes` WHERE (`recipes`.user_id = 1) [0m
+  [4;36;1mRecipe Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `recipes`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mRecipe Create (0.4ms)[0m   [0;1mINSERT INTO `recipes` (`created_at`, `title`, `updated_at`, `ingredients`, `version`, `user_id`) VALUES('2010-04-18 18:57:19', 'Fried Fish', '2010-04-18 18:57:19', NULL, 1, 1)[0m
+  [4;35;1mRecipe::Version Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `recipe_versions`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateRecipes (20100418053550)
+Migrating to AddVersionedTables (20100418155733)
+Migrating to CreateProfiles (20100418171649)
+Migrating to CreateUsers (20100418171837)
+Migrating to RemoveProfiles (20100418183948)
+Migrating to AddForeignKeyToRecipes (20100418184700)
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSHOW FIELDS FROM `recipe_versions`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mdescribe `recipe_versions`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW KEYS FROM `recipe_versions`[0m
+  [4;35;1mSQL (2.9ms)[0m   [0mSHOW FIELDS FROM `recipes`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mdescribe `recipes`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `recipes`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM `recipes` WHERE (`recipes`.user_id = 1) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mRecipe Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `recipes`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mRecipe Create (0.2ms)[0m   [0mINSERT INTO `recipes` (`created_at`, `title`, `updated_at`, `ingredients`, `version`, `user_id`) VALUES('2010-04-18 19:02:45', 'Fried Fish', '2010-04-18 19:02:45', NULL, 1, 1)[0m
+  [4;36;1mRecipe::Version Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `recipe_versions`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (87.9ms)[0m   [0;1mCREATE TABLE `recipe_versions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `recipe_id` int(11), `title` varchar(255), `ingredients` text, `created_at` datetime, `updated_at` datetime, `version` int(11)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (47.3ms)[0m   [0;1mCREATE TABLE `recipes` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `ingredients` text, `created_at` datetime, `updated_at` datetime, `version` int(11), `user_id` int(11)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (36.2ms)[0m   [0;1mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (18.4ms)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (6.9ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100418184700')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20100418053550')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100418155733')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20100418171649')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100418171837')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20100418183948')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` [0m
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Create (0.3ms)[0m   [0;1mINSERT INTO `users` (`name`, `created_at`, `updated_at`) VALUES('jebus', '2010-04-18 19:05:41', '2010-04-18 19:05:41')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mRecipe Load (0.5ms)[0m   [0;1mSELECT * FROM `recipes` WHERE (`recipes`.user_id = 1) [0m
+  [4;35;1mRecipe Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `recipes`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mRecipe Create (0.3ms)[0m   [0mINSERT INTO `recipes` (`created_at`, `title`, `updated_at`, `ingredients`, `version`, `user_id`) VALUES('2010-04-18 19:05:56', 'fried fish', '2010-04-18 19:05:56', NULL, 1, 1)[0m
+  [4;36;1mRecipe::Version Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `recipe_versions`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mRecipe Create (1.1ms)[0m   [0mINSERT INTO `recipes` (`created_at`, `title`, `updated_at`, `ingredients`, `version`, `user_id`) VALUES('2010-04-18 19:19:42', 'fried fish', '2010-04-18 19:19:42', 'fish and oi', 1, 1)[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mRecipe Create (0.4ms)[0m   [0;1mINSERT INTO `recipes` (`created_at`, `title`, `updated_at`, `ingredients`, `version`, `user_id`) VALUES('2010-04-18 19:23:58', 'Fried Fish', '2010-04-18 19:23:58', NULL, 1, 1)[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mRecipe Create (0.4ms)[0m   [0mINSERT INTO `recipes` (`created_at`, `title`, `updated_at`, `ingredients`, `version`, `user_id`) VALUES('2010-04-18 19:39:45', 'fried fish', '2010-04-18 19:39:45', NULL, 1, NULL)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mRecipe Create (0.2ms)[0m   [0;1mINSERT INTO `recipes` (`created_at`, `title`, `updated_at`, `ingredients`, `version`, `user_id`) VALUES('2010-04-18 19:41:40', 'fried fish', '2010-04-18 19:41:40', NULL, 1, 1)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mRecipe Create (0.2ms)[0m   [0mINSERT INTO `recipes` (`created_at`, `title`, `updated_at`, `ingredients`, `version`, `user_id`) VALUES('2010-04-18 19:42:11', 'fried fish', '2010-04-18 19:42:11', NULL, 1, 1)[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mRecipe Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `recipes`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mRecipe Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `recipes`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mRecipe Create (0.3ms)[0m   [0mINSERT INTO `recipes` (`created_at`, `title`, `updated_at`, `ingredients`, `version`, `user_id`) VALUES('2010-04-18 19:47:52', 'fried fish', '2010-04-18 19:47:52', NULL, 1, NULL)[0m
+  [4;36;1mRecipe::Version Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `recipe_versions`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mROLLBACK[0m
+  [4;36;1mUser Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (43.9ms)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (48.2ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateRecipes (20100418053550)
+  [4;36;1mSQL (25.6ms)[0m   [0;1mCREATE TABLE `recipes` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `ingredients` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100418053550')[0m
+Migrating to AddVersionedTables (20100418155733)
+  [4;36;1mSQL (53.8ms)[0m   [0;1mALTER TABLE `recipes` ADD `version` int(11)[0m
+  [4;35;1mSQL (21.4ms)[0m   [0mCREATE TABLE `recipe_versions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `recipe_id` int(11), `title` varchar(255), `ingredients` text, `created_at` datetime, `updated_at` datetime, `version` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100418155733')[0m
+Migrating to CreateProfiles (20100418171649)
+  [4;35;1mSQL (26.0ms)[0m   [0mCREATE TABLE `profiles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `bio` text, `user_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100418171649')[0m
+Migrating to CreateUsers (20100418171837)
+  [4;35;1mSQL (31.1ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100418171837')[0m
+Migrating to RemoveProfiles (20100418183948)
+  [4;35;1mSQL (1.6ms)[0m   [0mDROP TABLE `profiles`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100418183948')[0m
+Migrating to AddForeignKeyToRecipes (20100418184700)
+  [4;35;1mSQL (37.6ms)[0m   [0mALTER TABLE `recipes` ADD `user_id` int(11)[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100418184700')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSHOW FIELDS FROM `recipe_versions`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mdescribe `recipe_versions`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `recipe_versions`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mSHOW FIELDS FROM `recipes`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mdescribe `recipes`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `recipes`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (2.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO `users` (`name`, `created_at`, `updated_at`) VALUES('raith', '2010-04-18 20:08:26', '2010-04-18 20:08:26')[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM `recipes` WHERE (`recipes`.user_id = 1) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mRecipe Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `recipes`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mRecipe Create (0.3ms)[0m   [0mINSERT INTO `recipes` (`created_at`, `title`, `updated_at`, `ingredients`, `version`, `user_id`) VALUES('2010-04-18 20:10:01', 'Ham', '2010-04-18 20:10:01', NULL, 1, 1)[0m
+  [4;36;1mRecipe::Version Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `recipe_versions`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mRecipe Create (0.2ms)[0m   [0mINSERT INTO `recipes` (`created_at`, `title`, `updated_at`, `ingredients`, `version`, `user_id`) VALUES('2010-04-18 20:10:56', 'name', '2010-04-18 20:10:56', NULL, 1, 1)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mRecipe Create (0.2ms)[0m   [0;1mINSERT INTO `recipes` (`created_at`, `title`, `updated_at`, `ingredients`, `version`, `user_id`) VALUES('2010-04-18 20:11:25', 'ham', '2010-04-18 20:11:25', NULL, 1, 1)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM `recipes` WHERE (`recipes`.user_id = 1) [0m
+  [4;36;1mRecipe Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `recipes`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mRecipe Create (0.2ms)[0m   [0;1mINSERT INTO `recipes` (`created_at`, `title`, `updated_at`, `ingredients`, `version`, `user_id`) VALUES('2010-04-18 20:15:02', 'fried rice', '2010-04-18 20:15:02', NULL, 1, 1)[0m
+  [4;35;1mRecipe::Version Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `recipe_versions`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateRecipes (20100418053550)
+Migrating to AddVersionedTables (20100418155733)
+Migrating to CreateProfiles (20100418171649)
+Migrating to CreateUsers (20100418171837)
+Migrating to RemoveProfiles (20100418183948)
+Migrating to AddForeignKeyToRecipes (20100418184700)
+Migrating to RemoveRecipesUserId (20100418201910)
+  [4;35;1mSQL (90.6ms)[0m   [0mALTER TABLE `recipes` DROP `user_id`[0m
+  [4;36;1mSQL (29.0ms)[0m   [0;1mALTER TABLE `recipes` ADD `user_id` int(11)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100418201910')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mSHOW FIELDS FROM `recipe_versions`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mdescribe `recipe_versions`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSHOW KEYS FROM `recipe_versions`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW FIELDS FROM `recipes`[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mdescribe `recipes`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `recipes`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (47.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM `recipes` WHERE (`recipes`.user_id = 1) [0m
+  [4;36;1mRecipe Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `recipes`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mRecipe Create (0.3ms)[0m   [0;1mINSERT INTO `recipes` (`created_at`, `title`, `updated_at`, `ingredients`, `version`, `user_id`) VALUES('2010-04-18 20:24:15', 'fried rice', '2010-04-18 20:24:15', NULL, 1, 1)[0m
+  [4;35;1mRecipe::Version Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `recipe_versions`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (49.2ms)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (70.4ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateRecipes (20100418053550)
+  [4;36;1mSQL (37.9ms)[0m   [0;1mCREATE TABLE `recipes` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `ingredients` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100418053550')[0m
+Migrating to AddVersionedTables (20100418155733)
+  [4;36;1mSQL (26.3ms)[0m   [0;1mALTER TABLE `recipes` ADD `version` int(11)[0m
+  [4;35;1mSQL (4.9ms)[0m   [0mCREATE TABLE `recipe_versions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `recipe_id` int(11), `title` varchar(255), `ingredients` text, `created_at` datetime, `updated_at` datetime, `version` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100418155733')[0m
+Migrating to CreateProfiles (20100418171649)
+  [4;35;1mSQL (4.3ms)[0m   [0mCREATE TABLE `profiles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `bio` text, `user_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100418171649')[0m
+Migrating to CreateUsers (20100418171837)
+  [4;35;1mSQL (4.8ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100418171837')[0m
+Migrating to RemoveProfiles (20100418183948)
+  [4;35;1mSQL (2.0ms)[0m   [0mDROP TABLE `profiles`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100418183948')[0m
+Migrating to AddForeignKeyToRecipes (20100418184700)
+  [4;35;1mSQL (33.1ms)[0m   [0mALTER TABLE `recipes` ADD `user_id` int(11)[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100418184700')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mSHOW FIELDS FROM `recipe_versions`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mdescribe `recipe_versions`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `recipe_versions`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW FIELDS FROM `recipes`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mdescribe `recipes`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `recipes`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Create (0.3ms)[0m   [0;1mINSERT INTO `users` (`name`, `created_at`, `updated_at`) VALUES('raith', '2010-04-18 20:34:22', '2010-04-18 20:34:22')[0m
+  [4;35;1mSQL (24.1ms)[0m   [0mCOMMIT[0m
+  [4;36;1mRecipe Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `recipes`[0m
+  [4;35;1mSQL (98.9ms)[0m   [0mSELECT count(*) AS count_all FROM `recipes` WHERE (`recipes`.user_id = 1) [0m
