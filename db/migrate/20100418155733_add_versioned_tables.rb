@@ -16,6 +16,6 @@ class AddVersionedTables < ActiveRecord::Migration
 
   def self.down
     drop_table :recipe_versions
-    remove_column :chapters, :version
+    remove_column :recipes, :version
   end
 end

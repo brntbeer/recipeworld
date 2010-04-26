@@ -1,0 +1,6 @@
+<ul class="users">
+  <%=render :partial => "user",
+            :collection => @users %>
+</ul>
+
+<p><%= link_to 'New User', new_user_path %></p>

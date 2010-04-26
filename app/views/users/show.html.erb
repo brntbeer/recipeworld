@@ -1,0 +1,12 @@
+<ul class="users">
+  <li>
+    <h2>
+      <div class="user_id"><%= @user.id %> </div>
+      <%= @user.name %>
+    </h2>
+    <p class="bio"> <%= textilize(@user.bio) %> </p>
+  </li>
+</ul>
+
+<p><%= link_to 'Edit', edit_user_path(@user) %> 
+<%= link_to 'Back', users_path %></p>
